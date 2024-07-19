@@ -13,12 +13,10 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="安装core1.安装vmhttps:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_74195551&#x2F;article&#x2F;details&#x2F;127288338 注意：可能出现的意外，电脑的win版本可能不适配vm版本导致蓝屏，使用最新版vm应该不会出现问题。 2.下载镜像https:&#x2F;&#x2F;iso.mirrors.ustc.edu.cn&#x2F;ubuntu-releases&#x2F;20.04&#x2F;ubuntu-20.04.6">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="f:\github%E5%8D%9A%E5%AE%A2\core%E7%9A%84%E5%AE%89%E8%A3%85\source_posts\core%E7%9A%84%E5%AE%89%E8%A3%85.assets\image-20231210170139745.png">
 <meta property="article:published_time" content="2024-07-19T03:33:32.160Z">
-<meta property="article:modified_time" content="2024-07-19T03:42:40.322Z">
+<meta property="article:modified_time" content="2024-07-19T03:54:20.244Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="f:\github%E5%8D%9A%E5%AE%A2\core%E7%9A%84%E5%AE%89%E8%A3%85\source_posts\core%E7%9A%84%E5%AE%89%E8%A3%85.assets\image-20231210170139745.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -95,10 +93,15 @@
 <p><a target="_blank" rel="noopener" href="https://coreemu.github.io/core/install_ubuntu.html">https://coreemu.github.io/core/install_ubuntu.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/coreemu/core">https://github.com/coreemu/core</a></p>
 <p><a target="_blank" rel="noopener" href="https://liangkang233.github.io/2021/07/installation/">https://liangkang233.github.io/2021/07/installation/</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">#安装git工具</span><br><span class="line">sudo apt install git</span><br><span class="line"></span><br><span class="line">#使用git命令克隆到指定目录下（不过有时候会git不下来，一般是网络问题，有时候重启是可以的）</span><br><span class="line">git clone https://github.com/coreemu/core</span><br><span class="line"></span><br><span class="line">#安装系统软件包</span><br><span class="line">sudo apt-get update -y</span><br><span class="line">sudo apt-get install -y ca-certificates git sudo wget tzdata libpcap-dev libpcre3-dev \</span><br><span class="line">    libprotobuf-dev libxml2-dev protobuf-compiler unzip uuid-dev iproute2 iputils-ping \</span><br><span class="line">    tcpdump</span><br><span class="line"></span><br><span class="line">#添加 Visual Studio Code 的软件包源</span><br><span class="line">sudo apt install software-properties-common apt-transport-https wget</span><br><span class="line">wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -</span><br><span class="line">sudo add-apt-repository &quot;deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main&quot;</span><br><span class="line"></span><br><span class="line">#安装 Visual Studio Code</span><br><span class="line">sudo apt install code</span><br><span class="line"></span><br><span class="line">#更新pip</span><br><span class="line">sudo apt install python3 python3-pip</span><br><span class="line"></span><br><span class="line">#进入vscode之后改为8.2.0版本</span><br><span class="line">code core</span><br><span class="line"></span><br><span class="line">#进入core，执行shell脚本，成功会出现图2，如果出错，详细看setup.sh，哪出错单独解决哪个代码出了问题，单独执行</span><br><span class="line">cd core </span><br><span class="line">./setup.sh</span><br><span class="line"></span><br><span class="line">#使用invoke安装相关工具，他的指向是task.py,里面的脚本会自动安装。</span><br><span class="line">#如果出现错误，一般多执行几次，加上inv uninstall，重启就行。</span><br><span class="line">#实在不行，建议打开task.py,查看哪出错，单独执行分析。</span><br><span class="line">inv install																				</span><br></pre></td></tr></table></figure>
-
-<p>安装成功如下图</p>
-<p><img src="F:\github博客\core的安装\source_posts\core的安装.assets\image-20231210170139745.png" alt="image-20231210170139745"></p>
+<p>#安装git工具<br>sudo apt install git</p>
+<p>#使用git命令克隆到指定目录下（不过有时候会git不下来，一般是网络问题，有时候重启是可以的）<br>git clone <a target="_blank" rel="noopener" href="https://github.com/coreemu/core">https://github.com/coreemu/core</a></p>
+<p>#安装系统软件包<br>sudo apt-get update -y<br>sudo apt-get install -y ca-certificates git sudo wget tzdata libpcap-dev libpcre3-dev <br>    libprotobuf-dev libxml2-dev protobuf-compiler unzip uuid-dev iproute2 iputils-ping <br>    tcpdump</p>
+<p>#添加 Visual Studio Code 的软件包源<br>sudo apt install software-properties-common apt-transport-https wget<br>wget -q <a target="_blank" rel="noopener" href="https://packages.microsoft.com/keys/microsoft.asc">https://packages.microsoft.com/keys/microsoft.asc</a> -O- | sudo apt-key add -<br>sudo add-apt-repository “deb [arch&#x3D;amd64] <a target="_blank" rel="noopener" href="https://packages.microsoft.com/repos/vscode">https://packages.microsoft.com/repos/vscode</a> stable main”</p>
+<p>#安装 Visual Studio Code<br>sudo apt install code</p>
+<p>#更新pip<br>sudo apt install python3 python3-pip</p>
+<p>#进入vscode之后改为8.2.0版本<br>code core</p>
+<p>#进入core，执行shell脚本，成功会出现图2，如果出错，详细看setup.sh，哪出错单独解决哪个代码出了问题，单独执行<br>cd core<br>.&#x2F;setup.sh</p>
+<p>#使用invoke安装相关工具，他的指向是task.py,里面的脚本会自动安装。<br>#如果出现错误，一般多执行几次，加上inv uninstall，重启就行。<br>#实在不行，建议打开task.py,查看哪出错，单独执行分析。<br>inv install																			</p>
 
       
     </div>
